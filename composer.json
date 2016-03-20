@@ -4,10 +4,16 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "url": "https://github.com/deviator2001/admin.git",
+            "type": "git"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "illuminate/html": "v5.0.0",
+        "sleeping-owl/admin": "dev-laravel-5.2",
         "laravelcollective/html": "v5.2.4",
         "cartalyst/sentinel": "v2.0.9"
     },
