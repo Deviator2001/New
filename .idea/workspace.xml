@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="afcf2de6-7aae-4339-be69-a20b10154e33" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="New.iws" />
     <ignored path=".idea/workspace.xml" />
