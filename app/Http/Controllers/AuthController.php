@@ -70,7 +70,7 @@ class AuthController extends Controller
             {
                 return Redirect::intended('/');
             }
-            $errors = 'Неправильный логин или пароль.';
+            $errors = 'РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ.';
             return Redirect::back()
                 ->withInput()
                 ->withErrors($errors);
@@ -83,21 +83,21 @@ class AuthController extends Controller
             $sent = Mail::send('mail.account_activate', compact('sentuser', 'code'), function($m) use ($sentuser)
             {
                 $m->from('noreplay@mysite.ru', 'LaravelSite');
-                $m->to($sentuser->email)->subject('Активация аккаунта');
+                $m->to($sentuser->email)->subject('РђРєС‚РёРІР°С†РёСЏ Р°РєРєР°СѓРЅС‚Р°');
             });
 
             if ($sent === 0)
             {
                 return Redirect::to('login')
-                    ->withErrors('Ошибка отправки письма активации.');
+                    ->withErrors('РћС€РёР±РєР° РѕС‚РїСЂР°РІРєРё РїРёСЃСЊРјР° Р°РєС‚РёРІР°С†РёРё.');
             }
-            $errors = 'Ваш аккаунт не ативирован! Поищите в своем почтовом ящике письмо со ссылкой для активации (Вам отправлено повторное письмо). ';
+            $errors = 'Р’Р°С€ Р°РєРєР°СѓРЅС‚ РЅРµ Р°С‚РёРІРёСЂРѕРІР°РЅ! РџРѕРёС‰РёС‚Рµ РІ СЃРІРѕРµРј РїРѕС‡С‚РѕРІРѕРј СЏС‰РёРєРµ РїРёСЃСЊРјРѕ СЃРѕ СЃСЃС‹Р»РєРѕР№ РґР»СЏ Р°РєС‚РёРІР°С†РёРё (Р’Р°Рј РѕС‚РїСЂР°РІР»РµРЅРѕ РїРѕРІС‚РѕСЂРЅРѕРµ РїРёСЃСЊРјРѕ). ';
             return view('auth.login')->withErrors($errors);
         }
         catch (ThrottlingException $e)
         {
             $delay = $e->getDelay();
-            $errors = "Ваш аккаунт блокирован на {$delay} секунд.";
+            $errors = "Р’Р°С€ Р°РєРєР°СѓРЅС‚ Р±Р»РѕРєРёСЂРѕРІР°РЅ РЅР° {$delay} СЃРµРєСѓРЅРґ.";
         }
         return Redirect::back()
             ->withInput()
@@ -123,7 +123,7 @@ class AuthController extends Controller
         if($user = Sentinel::findByCredentials($credentials))
         {
             return Redirect::to('register')
-                ->withErrors('Такой Email уже зарегистрирован.');
+                ->withErrors('РўР°РєРѕР№ Email СѓР¶Рµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ.');
         }
 
         if ($sentuser = Sentinel::register($input))
@@ -133,19 +133,19 @@ class AuthController extends Controller
             $sent = Mail::send('mail.account_activate', compact('sentuser', 'code'), function($m) use ($sentuser)
             {
                 $m->from('noreplqy@mysite.ru', 'LaravelSite');
-                $m->to($sentuser->email)->subject('Активация аккаунта');
+                $m->to($sentuser->email)->subject('РђРєС‚РёРІР°С†РёСЏ Р°РєРєР°СѓРЅС‚Р°');
             });
             if ($sent === 0)
             {
                 return Redirect::to('register')
-                    ->withErrors('Ошибка отправки письма активации.');
+                    ->withErrors('РћС€РёР±РєР° РѕС‚РїСЂР°РІРєРё РїРёСЃСЊРјР° Р°РєС‚РёРІР°С†РёРё.');
             }
 
             $role = Sentinel::findRoleBySlug('user');
             $role->users()->attach($sentuser);
 
             return Redirect::to('login')
-                ->withSuccess('Ваш аккаунт создан. Проверьте Email для активации.')
+                ->withSuccess('Р’Р°С€ Р°РєРєР°СѓРЅС‚ СЃРѕР·РґР°РЅ. РџСЂРѕРІРµСЂСЊС‚Рµ Email РґР»СЏ Р°РєС‚РёРІР°С†РёРё.')
                 ->with('userId', $sentuser->getUserId());
         }
         return Redirect::to('register')
@@ -168,11 +168,11 @@ class AuthController extends Controller
         if ( ! Activation::complete($sentuser, $code))
         {
             return Redirect::to("login")
-                ->withErrors('Неверный или просроченный код активации.');
+                ->withErrors('РќРµРІРµСЂРЅС‹Р№ РёР»Рё РїСЂРѕСЃСЂРѕС‡РµРЅРЅС‹Р№ РєРѕРґ Р°РєС‚РёРІР°С†РёРё.');
         }
 
         return Redirect::to('login')
-            ->withSuccess('Аккаунт активирован.');
+            ->withSuccess('РђРєРєР°СѓРЅС‚ Р°РєС‚РёРІРёСЂРѕРІР°РЅ.');
     }
 
 
@@ -204,7 +204,7 @@ class AuthController extends Controller
         {
             return Redirect::back()
                 ->withInput()
-                ->withErrors('Пользователь с таким E-Mail в системе не найден.');
+                ->withErrors('РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј E-Mail РІ СЃРёСЃС‚РµРјРµ РЅРµ РЅР°Р№РґРµРЅ.');
         }
         $reminder = Reminder::exists($sentuser) ?: Reminder::create($sentuser);
         $code = $reminder->code;
@@ -212,12 +212,12 @@ class AuthController extends Controller
         $sent = Mail::send('mail.account_reminder', compact('sentuser', 'code'), function($m) use ($sentuser)
         {
             $m->from('noreplay@mysite.com', 'SiteLaravel');
-            $m->to($sentuser->email)->subject('Сброс пароля');
+            $m->to($sentuser->email)->subject('РЎР±СЂРѕСЃ РїР°СЂРѕР»СЏ');
         });
         if ($sent === 0)
         {
             return Redirect::to('reset')
-                ->withErrors('Ошибка отправки email.');
+                ->withErrors('РћС€РёР±РєР° РѕС‚РїСЂР°РІРєРё email.');
         }
         return Redirect::to('wait');
     }
@@ -255,15 +255,15 @@ class AuthController extends Controller
         {
             return Redirect::back()
                 ->withInput()
-                ->withErrors('Такого пользователя не существует.');
+                ->withErrors('РўР°РєРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.');
         }
         if ( ! Reminder::complete($user, $code, $request->password))
         {
             return Redirect::to('login')
-                ->withErrors('Неверный или просроченный код сброса пароля.');
+                ->withErrors('РќРµРІРµСЂРЅС‹Р№ РёР»Рё РїСЂРѕСЃСЂРѕС‡РµРЅРЅС‹Р№ РєРѕРґ СЃР±СЂРѕСЃР° РїР°СЂРѕР»СЏ.');
         }
         return Redirect::to('login')
-            ->withSuccess("Пароль сброшен.");
+            ->withSuccess("РџР°СЂРѕР»СЊ СЃР±СЂРѕС€РµРЅ.");
     }
 
     /**

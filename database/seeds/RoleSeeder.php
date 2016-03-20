@@ -17,7 +17,7 @@ class RoleSeeder extends Seeder
         ];
         $adminUser = Sentinel::registerAndActivate($admin);
         $role = [
-            'name' => 'Àäìèíèñòğàòîğ',
+            'name' => 'ĞĞ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ°Ñ‚Ğ¾Ñ€',
             'slug' => 'admin',
             'permissions' => [
                 'admin' => true,
@@ -26,12 +26,12 @@ class RoleSeeder extends Seeder
         $adminRole = Sentinel::getRoleRepository()->createModel()->fill($role)->save();
         $adminUser->roles()->attach($adminRole);
         $role = [
-            'name' => 'Ïîëüçîâàòåëü',
+            'name' => 'ĞŸĞ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒ',
             'slug' => 'user',
         ];
         $userRole = Sentinel::getRoleRepository()->createModel()->fill($role)->save();
         $role = [
-            'name' => 'Çàáàíåí',
+            'name' => 'Ğ—Ğ°Ğ±Ğ°Ğ½ĞµĞ½',
             'slug' => 'banned',
         ];
         $banRole = Sentinel::getRoleRepository()->createModel()->fill($role)->save();
