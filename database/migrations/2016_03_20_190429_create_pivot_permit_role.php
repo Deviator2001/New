@@ -12,7 +12,7 @@ class CreatePivotPermitRole extends Migration
      */
     public function up()
     {
-        Schema::create('"permit_role"', function (Blueprint $table) {
+        Schema::create('permit_role', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('permit_id');
             $table->integer('role_id');
@@ -27,6 +27,6 @@ class CreatePivotPermitRole extends Migration
      */
     public function down()
     {
-        Schema::drop('"permit_role"');
+        Schema::drop('permit_role');
     }
 }

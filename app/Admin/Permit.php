@@ -1,6 +1,6 @@
 <?php
 
-Admin::model('App\Permit')->title('"Права пользователей"')->display(function ()
+Admin::model('App\Permit')->title('Права пользователей')->display(function ()
 {
 	$display = AdminDisplay::datatables();
 	$display->with();
