@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Category' => $baseDir . '/database/migrations/2016_03_26_141553_category.php',
     'CreateAdministratorsTable' => $baseDir . '/database/migrations/2014_10_12_104748_create_administrators_table.php',
     'CreatePermitsTable' => $baseDir . '/database/migrations/2016_03_20_190202_create_permits_table.php',
     'CreatePivotPermitRole' => $baseDir . '/database/migrations/2016_03_20_190429_create_pivot_permit_role.php',
