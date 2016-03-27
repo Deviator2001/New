@@ -160,6 +160,7 @@ return [
         SleepingOwl\Admin\AdminServiceProvider::class,
         Angrydeer\Attachfiles\AttachfilesServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -221,6 +222,7 @@ return [
         'AdminTemplate' => SleepingOwl\Admin\Templates\Facade\AdminTemplate::class,
         'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,
         'ImgHelper'     => App\Helpers\ImgHelp::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ),
 
