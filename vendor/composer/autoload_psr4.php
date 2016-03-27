@@ -41,4 +41,5 @@ return array(
     'Cartalyst\\Sentinel\\' => array($vendorDir . '/cartalyst/sentinel/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'App\\' => array($baseDir . '/app'),
+    'Angrydeer\\Attachfiles\\' => array($vendorDir . '/angrydeer/attachfiles/src'),
 );

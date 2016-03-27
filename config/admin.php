@@ -26,7 +26,7 @@ return [
 	/*
 	 * Directory to upload images to (relative to public directory)
 	 */
-	'imagesUploadDirectory' => 'images/uploads',
+	'imagesUploadDirectory' => '/images',
 
 	/*
 	 * Authentication config

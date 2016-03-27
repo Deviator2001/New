@@ -18,6 +18,7 @@ Admin::model(App\Category::class)->title('Категории товаров')->d
 		FormItem::checkbox('showcontent', 'В спсике категорий')->defaultValue(true),
 		FormItem::ckeditor('note', 'Аннотация'),
 		FormItem::ckeditor('desc', 'Описание'),
+		FormItem::multiimages('photos', 'Изображения'),
 	]);
 	return $form;
 });

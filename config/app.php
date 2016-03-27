@@ -158,6 +158,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         SleepingOwl\Admin\AdminServiceProvider::class,
+        Angrydeer\Attachfiles\AttachfilesServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
 
     ],
 
@@ -218,6 +220,7 @@ return [
         'AdminForm'     => SleepingOwl\Admin\Form\AdminForm::class,
         'AdminTemplate' => SleepingOwl\Admin\Templates\Facade\AdminTemplate::class,
         'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,
+        'ImgHelper'     => App\Helpers\ImgHelp::class,
 
     ),
 

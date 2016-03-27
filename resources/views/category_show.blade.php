@@ -29,9 +29,11 @@
             @endforeach
         </ul>
     @endif
-
-
-    <h1>Пример breadcrumbs</h1>
+    <h1>Вывод изображений категории</h1>
+    @foreach($node->attaches as $attach)
+        <img src="{{URL::to($attach->filename)}}" alt="{{$attach->alt}}" title="{{$attach->title}}">
+    @endforeach
+    <h1>Пример цепочки</h1>
     <style>.ibl {display:inline-block;}</style>
     <li class="ibl"><a href="{{URL::to('/category')}}">Главная</a></li>
     @foreach($node->getAncestors() as $descend)

@@ -1,4 +1,5 @@
 <?php
+FormItem::register('multiimages', 'App\ServiceModels\AdminFormItemMultiImages');
 
 /*
  * Describe you custom displays, columns and form items here.
